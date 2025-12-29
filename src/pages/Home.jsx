@@ -1,5 +1,6 @@
 import Hero from "../sections/Hero";
 import MainProjectsCarousel from "../sections/MainProjectsCarousel";
+import About from "../sections/About";
 import Contact from "../sections/Contact";
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
     <>
       <Hero />
       <MainProjectsCarousel />
+      <About />
       <Contact />
     </>
   );
