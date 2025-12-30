@@ -31,7 +31,7 @@ function MainProjectsCarousel() {
   };
 
   return (
-    <section className="py-28 px-6 bg-black">
+    <section id="projects"className="py-28 px-6 bg-black">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
         Featured Projects
       </h2>

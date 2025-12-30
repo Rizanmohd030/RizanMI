@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: black;
-  color: white;
+:root {
+  --bg-main: #f5f1e8;
+  --text-main: #0f0f0f;
+  --text-muted: #555;
+  --bg-dark: #0f0f0f;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: Inter, system-ui, sans-serif;
+}
+
