@@ -1,15 +1,11 @@
 import Hero from "../sections/Hero";
-import MainProjectsCarousel from "../sections/MainProjectsCarousel";
-import About from "../sections/About";
-import Contact from "../sections/Contact";
+import Projects from "../sections/Projects";
 
 function Home() {
   return (
     <>
       <Hero />
-      <MainProjectsCarousel />
-      <About />
-      <Contact />
+      <Projects />
     </>
   );
 }
