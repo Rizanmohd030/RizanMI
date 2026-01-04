@@ -1,0 +1,1 @@
+staggered menu color choices:layerColors = ["#e6f4f8", "#cfeaf1", "#b7dfe9"]
