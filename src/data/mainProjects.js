@@ -8,6 +8,7 @@ export const mainProjects = [
     description2:
       "Its core differentiator is the food scanner, allowing users to scan ingredients using their camera and instantly receive relevant recipe suggestions.",
     live: "https://recipehunt.vercel.app/",
+    github:"https://github.com/Rizanmohd030/Recipe-Finder",
     heroImage: RecipeFin,
   },
 ];
