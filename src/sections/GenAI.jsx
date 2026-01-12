@@ -47,7 +47,7 @@ function GenAI() {
             <div className="flex items-center gap-5">
 
               {/* Bullet */}
-              <span className="w-5 h-5 rounded-full bg-[#1691DB]" />
+              <span className="w-10 h-10 rounded-full bg-[#1691DB]" />
 
               {/* Title */}
               <h2

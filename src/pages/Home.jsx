@@ -1,6 +1,7 @@
 import Hero from "../sections/Hero";
 import RecipeHunt from "../sections/RecipeHunt";
 import GenAI from "../sections/GenAI";
+import ProjectBlog from "../sections/ProjectBlog";
 
 function Home() {
   return (
@@ -21,6 +22,10 @@ function Home() {
         <div className="-mt-32">
           <GenAI />
         </div>
+         <div className="flex justify-center py-10">
+          <span className="w-32 h-[6px] bg-black/10 rounded-full"></span>
+        </div>
+        <ProjectBlog />
 
       </main>
     </>

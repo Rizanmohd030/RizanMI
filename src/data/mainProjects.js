@@ -1,5 +1,6 @@
 import RecipeFin from "../assets/images/RecipeFin.png";
 import GenAILaptop from "../assets/images/genai-laptop.png";
+import BlogUI from "../assets/images/blog.png";
 
 export const mainProjects = [
   {
@@ -14,7 +15,14 @@ export const mainProjects = [
     id: "genai",
     title: "GenAI Interview Assistant",
     live: "https://genai-resume.vercel.app/",
-    git: "https://github.com/Rizanmohd030/genai-resume",
+    git: "https://github.com/Rizanmohd030/GenAI-Resume-Assistant",
     heroImage: GenAILaptop,
   },
+  {
+    id: "blog",
+    title: "Personal Blog Platform",
+    live: "https://personal-blog-self-six.vercel.app/",
+    git: "https://github.com/Rizanmohd030/personal-blog",
+    heroImage: BlogUI,
+  }
 ];
