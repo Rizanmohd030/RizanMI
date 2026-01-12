@@ -75,7 +75,7 @@ function Hero() {
           </h2>
 
           <p className="mt-6 text-2xl md:text-3xl text-[#f6f0d7]">
-            MERN Stack Developer
+            Software Developer
           </p>
 
           <a

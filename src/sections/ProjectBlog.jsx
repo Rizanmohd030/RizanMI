@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { mainProjects } from "../data/mainProjects";
+import PrimaryButton from "../components/PrimaryButton";
 
 function ProjectBlog() {
 
@@ -26,7 +27,7 @@ function ProjectBlog() {
   }, []);
 
   return (
-    <section className="py-16 bg-[#F3F3F4] overflow-hidden">
+    <section className="py-16  overflow-hidden">
       <div className="w-full mx-auto lg:px-0 px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center lg:gap-x-[-200px]">
@@ -44,9 +45,7 @@ function ProjectBlog() {
               </h2>
             </div>
 
-            {/* Main text with animated highlight */}
             <p className="mt-8 text-3xl text-gray-600">
-
               A full-stack blogging platform with{" "}
 
               <span className="relative inline-block text-white px-3 py-1 z-10">
@@ -63,29 +62,18 @@ function ProjectBlog() {
               {" "}and complete content management capabilities.
             </p>
 
-            {/* Catchphrase (FULL BLACK) */}
             <p className="mt-12 italic text-3xl font-bold text-black">
               "Manage posts, images, and edits — all in one place."
             </p>
 
-            <div className="mt-16 flex gap-6">
-              <a
-                href={blog.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-[#1691DB] font-medium hover:underline"
-              >
-                ▶ Watch Live
-              </a>
+            <div className="mt-16 flex gap-8">
+              <PrimaryButton href={blog.live}>
+                Watch Live
+              </PrimaryButton>
 
-              <a
-                href={blog.git}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-gray-600 font-medium hover:underline"
-              >
-                &lt;&gt; See Code
-              </a>
+              <PrimaryButton href={blog.git} variant="dark">
+                See Code
+              </PrimaryButton>
             </div>
           </div>
 

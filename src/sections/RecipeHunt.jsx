@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { mainProjects } from "../data/mainProjects";
+import PrimaryButton from "../components/PrimaryButton";
 
 function RecipeHunt() {
 
@@ -26,7 +27,7 @@ function RecipeHunt() {
   }, []);
 
   return (
-    <section className="py-16 bg-[#F3F3F4] overflow-hidden">
+    <section className="py-16 overflow-hidden">
       <div className="w-full mx-auto lg:px-0 px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center lg:gap-x-[-200px]">
@@ -50,8 +51,7 @@ function RecipeHunt() {
             </p>
 
             {/* Highlight */}
-            <p className="mt-10 italic text-3xl md:text-4xl  whitespace-nowrap">
-
+            <p className="mt-10 italic text-3xl md:text-4xl whitespace-nowrap">
               <span className="text-black">
                 "Powered by an intelligent{" "}
               </span>
@@ -70,24 +70,14 @@ function RecipeHunt() {
               <span className="text-black">"</span>
             </p>
 
-            <div className="mt-16 flex gap-6">
-              <a
-                href={data.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-[#1691DB] font-medium hover:underline"
-              >
-                ▶ Watch Live
-              </a>
+            <div className="mt-16 flex gap-8">
+              <PrimaryButton href={data.live}>
+                Watch Live
+              </PrimaryButton>
 
-              <a
-                href={data.git}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-gray-600 font-medium hover:underline"
-              >
-                &lt;&gt; See Code
-              </a>
+              <PrimaryButton href={data.git} variant="dark">
+                See Code
+              </PrimaryButton>
             </div>
           </div>
 

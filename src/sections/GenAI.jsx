@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { mainProjects } from "../data/mainProjects";
+import PrimaryButton from "../components/PrimaryButton";
 
 function GenAI() {
 
@@ -26,7 +27,7 @@ function GenAI() {
   }, []);
 
   return (
-    <section className="py-16 bg-[#F3F3F4] overflow-hidden">
+    <section className="py-16  overflow-hidden">
       <div className="w-full mx-auto px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -41,27 +42,20 @@ function GenAI() {
           </div>
 
           {/* RIGHT — TEXT */}
-          <div className="lg:w-[700px]  lg:mt-24">
+          <div className="lg:w-[700px] lg:mt-24">
 
-            {/* BULLET + TITLE */}
             <div className="flex items-center gap-5">
-
-              {/* Bullet */}
               <span className="w-10 h-10 rounded-full bg-[#1691DB]" />
 
-              {/* Title */}
               <h2
                 className="text-6xl md:text-7xl font-bold text-black tracking-wide"
                 style={{ fontFamily: "Bebas Neue, sans-serif" }}
               >
-               INTERVIEW-ASSISTANT
+                INTERVIEW-ASSISTANT
               </h2>
-
             </div>
 
-            {/* Highlight sentence */}
             <p className="mt-6 text-4xl text-gray-600 leading-snug">
-
               Generates personalized{" "}
 
               <span className="relative inline-block text-white px-3 py-1 z-10">
@@ -83,25 +77,14 @@ function GenAI() {
               and crack tech interviews.
             </p>
 
-            {/* Links */}
             <div className="mt-14 flex gap-8">
-              <a
-                href={genai.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-[#1691DB] font-medium hover:underline"
-              >
-                ▶ Watch Live
-              </a>
+              <PrimaryButton href={genai.live}>
+                Watch Live
+              </PrimaryButton>
 
-              <a
-                href={genai.git}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl text-gray-600 font-medium hover:underline"
-              >
-                &lt;&gt; See Code
-              </a>
+              <PrimaryButton href={genai.git} variant="dark">
+                See Code
+              </PrimaryButton>
             </div>
 
           </div>

@@ -7,10 +7,12 @@ html,
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
   font-family: Inter, system-ui, sans-serif;
   color: #0f0f0f;
-  background: #ffffff;
+  background-color: #F3F3F4!important;
 }
+
 
 
 /* for scroll styling and marker highlight */
@@ -22,4 +24,3 @@ body {
 .animate-highlight {
   animation: highlight 0.8s ease-out forwards;
 }
-
