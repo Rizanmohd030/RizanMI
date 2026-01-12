@@ -45,7 +45,7 @@ function ProjectBlog() {
             </div>
 
             {/* Main text with animated highlight */}
-            <p className="mt-8 text-4xl text-gray-600">
+            <p className="mt-8 text-3xl text-gray-600">
 
               A full-stack blogging platform with{" "}
 
@@ -94,7 +94,7 @@ function ProjectBlog() {
             <img
               src={blog.heroImage}
               alt={blog.title}
-              className="w-full h-auto"
+              className="w-full h-auto scale-95"
             />
           </div>
 

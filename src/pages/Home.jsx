@@ -13,18 +13,34 @@ function Home() {
         {/* Project 1 */}
         <RecipeHunt />
 
-        {/* Soft divider */}
-        <div className="flex justify-center py-10">
-          <span className="w-32 h-[6px] bg-black/10 rounded-full"></span>
+        {/* Soft divider (reduced space) */}
+        <div className="flex justify-center py-6">
+          <span className="
+            w-full 
+            max-w-[1200px] 
+            mx-10 
+            h-px
+            bg-black/60
+          "></span>
         </div>
 
-        {/* Project 2 with overlap */}
-        <div className="-mt-32">
+        {/* Project 2 (less overlap) */}
+        <div className="-mt-16">
           <GenAI />
         </div>
-         <div className="flex justify-center py-10">
-          <span className="w-32 h-[6px] bg-black/10 rounded-full"></span>
+
+        {/* Divider */}
+        <div className="flex justify-center py-6">
+          <span className="
+            w-full 
+            max-w-[1200px] 
+            mx-10 
+            h-px
+            bg-black/60
+          "></span>
         </div>
+
+        {/* Project 3 */}
         <ProjectBlog />
 
       </main>

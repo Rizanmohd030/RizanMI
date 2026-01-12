@@ -44,13 +44,13 @@ function RecipeHunt() {
               </h2>
             </div>
 
-            <p className="mt-5 text-4xl text-gray-600">
+            <p className="mt-5 text-3xl text-gray-600">
               An AI-powered recipe discovery platform that turns food images into instant,
               relevant recipes.
             </p>
 
             {/* Highlight */}
-            <p className="mt-10 italic text-3xl md:text-4xl font-bold whitespace-nowrap">
+            <p className="mt-10 italic text-3xl md:text-4xl  whitespace-nowrap">
 
               <span className="text-black">
                 "Powered by an intelligent{" "}
