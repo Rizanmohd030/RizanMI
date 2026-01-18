@@ -4,10 +4,13 @@
   import ProjectBlog from "../sections/ProjectBlog";
   import PrimaryButton from "../components/PrimaryButton";
   import AboutMe from "../sections/AboutMe";
+  import StickyNavbar from "../components/StickyNavbar";
+  // import Footer from "../components/Footer";
 
   function Home() {
     return (
       <>
+        <StickyNavbar />
         <Hero />
 
         <main >
@@ -56,7 +59,7 @@
 
                <AboutMe />
                   
-
+          {/* <Footer />   */}
         </main>
       </>
     );

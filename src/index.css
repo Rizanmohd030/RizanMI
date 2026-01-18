@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global foundation only */
+/* GLOBAL FOUNDATION */
 html,
 body {
   margin: 0;
@@ -10,12 +12,40 @@ body {
   min-height: 100%;
   font-family: Inter, system-ui, sans-serif;
   color: #0f0f0f;
-  background-color: #F3F3F4!important;
+  background: transparent; /* important */
 }
 
+/* BACKGROUND IMAGE */
+body {
+  position: relative;
+}
 
+/* IMAGE LAYER */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
 
-/* for scroll styling and marker highlight */
+  background-image: url("/src/assets/images/japnews.jpg"); /* CHANGE PATH IF NEEDED */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -2;
+}
+
+/* OPACITY CONTROL LAYER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(255,255,255,0.7);
+
+  z-index: -1;
+}
+
+/* HIGHLIGHT ANIMATION */
 @keyframes highlight {
   from { width: 0; }
   to { width: 100%; }
@@ -23,4 +53,10 @@ body {
 
 .animate-highlight {
   animation: highlight 0.8s ease-out forwards;
+}
+
+/* HERO FONT */
+.hero-font{
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.02em;
 }

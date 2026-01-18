@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import DecryptedText from "./Decrypt";
 
 const StaggeredMenu = ({
   items = [],
@@ -87,17 +88,15 @@ const StaggeredMenu = ({
   return (
     <>
       {/* MENU BUTTON */}
-     <button
-  ref={buttonRef}
-  onClick={toggleMenu}
-  className={`fixed top-6 right-6 z-50 text-lg md:text-xl uppercase tracking-widest transition-colors ${
-    open ? "text-[#1691DB]" : "text-white"
-  }`}
->
-  {open ? "Close" : "Menu"}
-</button>
-
-
+      <button
+        ref={buttonRef}
+        onClick={toggleMenu}
+        className={`fixed top-6 right-6 z-50 text-lg md:text-xl uppercase tracking-widest transition-colors ${
+          open ? "text-[#1691DB]" : "text-white"
+        }`}
+      >
+        {open ? "Close" : "Menu"}
+      </button>
 
       {/* PRE-LAYERS */}
       {layerColors.map((color, i) => (
@@ -119,9 +118,17 @@ const StaggeredMenu = ({
             <a
               key={i}
               href={item.link}
-              className="text-4xl font-semibold text-black hover:opacity-70 transition"
+              className="text-4xl font-semibold text-black transition block"
             >
-              {item.label}
+              <DecryptedText
+                text={item.label}
+                speed={50}
+                maxIterations={10}
+                animateOn="hover"
+                useOriginalCharsOnly={true}
+                className="text-black"
+                encryptedClassName="text-black/40"
+              />
             </a>
           ))}
         </nav>
