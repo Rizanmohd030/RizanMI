@@ -2,12 +2,13 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        outfit: ['Outfit', 'system-ui', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
+        hero: ['"Bebas Neue"', 'sans-serif'],
       },
       colors: {
         surface: '#F3F4F6',

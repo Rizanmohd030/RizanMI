@@ -57,7 +57,7 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                     </div>
 
                     {/* Image Container with Styling */}
-                    <div className="bg-surface relative flex items-center justify-center p-4 sm:p-8 min-h-[300px] h-full">
+                    <div className="bg-surface relative flex items-center justify-center p-4 sm:p-8 min-h-[300px] h-full overflow-hidden">
                         <img
                             src={image}
                             alt={title}

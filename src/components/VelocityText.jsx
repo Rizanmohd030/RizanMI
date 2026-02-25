@@ -15,25 +15,25 @@ export default function VelocityText({ className = "" }) {
         <div className={`flex flex-col gap-2 sm:gap-4 overflow-hidden w-[150%] -ml-[25%] lg:w-full lg:ml-0 ${className}`}>
             <motion.p
                 style={{ skewX, x: x1 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black uppercase leading-[0.85] text-black/5"
+                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5"
             >
                 AIM HIGH • BUILD FAST • CREATE •
             </motion.p>
             <motion.p
                 style={{ skewX, x: x2 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black uppercase leading-[0.85] text-black/5"
+                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5"
             >
                 KEEP LEARNING • KEEP BUILDING •
             </motion.p>
             <motion.p
                 style={{ skewX, x: x1 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black uppercase leading-[0.85] text-black/5"
+                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5"
             >
                 WRITE CLEAN CODE • FIX BUGS •
             </motion.p>
             <motion.p
                 style={{ skewX, x: x2 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black uppercase leading-[0.85] text-black/5 hidden sm:block"
+                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5 hidden sm:block"
             >
                 SOLVE PROBLEMS • BUILD THE FUTURE •
             </motion.p>

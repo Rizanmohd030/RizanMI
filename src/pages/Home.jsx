@@ -8,6 +8,7 @@ import ProjectBlog from "../sections/ProjectBlog";
 import AboutMe from "../sections/AboutMe";
 import Contact from "../sections/Contact";
 import Footer from "../components/Footer";
+import MoreProjects from "../sections/MoreProjects";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
             <RecipeHunt />
             <GenAI />
             <ProjectBlog />
+            <MoreProjects />
           </div>
         </div>
       </section>
