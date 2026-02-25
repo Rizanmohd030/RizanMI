@@ -1,62 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* GLOBAL FOUNDATION */
+/* ── GLOBAL FOUNDATION ── */
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   color: #0f0f0f;
-  background: transparent; /* important */
+  background-color: #F3F4F6;
+  background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
 }
 
-/* BACKGROUND IMAGE */
-body {
-  position: relative;
+/* ── SELECTION ── */
+::selection {
+  background: #3f436d;
+  color: #fff;
 }
 
-/* IMAGE LAYER */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background-image: url("/src/assets/images/japnews.jpg"); /* CHANGE PATH IF NEEDED */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  z-index: -2;
+/* ── SCROLLBAR (minimal) ── */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* OPACITY CONTROL LAYER */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background: rgba(255,255,255,0.7);
-
-  z-index: -1;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* HIGHLIGHT ANIMATION */
-@keyframes highlight {
-  from { width: 0; }
-  to { width: 100%; }
+::-webkit-scrollbar-thumb {
+  background: #0f0f0f20;
+  border-radius: 99px;
 }
 
-.animate-highlight {
-  animation: highlight 0.8s ease-out forwards;
-}
-
-/* HERO FONT */
-.hero-font{
-  font-family: 'Anton', sans-serif;
-  letter-spacing: -0.02em;
+::-webkit-scrollbar-thumb:hover {
+  background: #0f0f0f40;
 }

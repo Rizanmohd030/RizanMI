@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        outfit: ['Outfit', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        surface: '#F3F4F6',
+        accent: '#FF4500',
+        navbg: '#3f436d',
+      },
+    },
   },
   plugins: [],
 }

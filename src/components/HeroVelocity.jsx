@@ -26,7 +26,7 @@ export default function HeroVelocity() {
   });
 
   return (
-   <section
+  <section
   ref={targetRef}
   className="absolute top-0 left-0 w-full h-[250vh] relative"
 >
