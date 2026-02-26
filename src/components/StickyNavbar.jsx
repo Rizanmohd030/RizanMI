@@ -429,7 +429,7 @@ export default function StickyNavbar({
           <aside
             id="staggered-menu-panel"
             ref={panelRef}
-            className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[7em_3em_3em_3em] md:p-[8em_4em_4em_4em] overflow-y-auto z-10 pointer-events-auto border-l border-black/10"
+            className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_3em_2em_3em] md:p-[8em_4em_2em_4em] overflow-y-auto z-10 pointer-events-auto border-l border-black/10"
             aria-hidden={!open}
           >
             {/* Explicit Close Button inside the panel */}
@@ -440,16 +440,16 @@ export default function StickyNavbar({
               Close ✕
             </button>
 
-            <div className="sm-panel-inner flex-1 flex flex-col gap-8 md:gap-12 mt-10">
+            <div className="sm-panel-inner flex-1 flex flex-col gap-6 md:gap-8 mt-10">
               <ul
-                className="sm-panel-list list-none m-0 p-0 flex flex-col gap-4 md:gap-6"
+                className="sm-panel-list list-none m-0 p-0 flex flex-col gap-2 md:gap-4"
                 role="list"
                 data-numbering={displayItemNumbering || undefined}
               >
                 {items.map((it, idx) => (
                   <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={idx}>
                     <a
-                      className="sm-panel-item relative text-black font-black text-5xl md:text-7xl cursor-pointer leading-tight tracking-tight uppercase transition-[color] duration-150 ease-linear inline-block no-underline pr-8"
+                      className="sm-panel-item relative text-black font-black text-4xl md:text-6xl cursor-pointer leading-tight tracking-tight uppercase transition-[color] duration-150 ease-linear inline-block no-underline pr-8"
                       href={it.link}
                       onClick={(e) => handleNavClick(e, it.link)}
                       data-index={idx + 1}
@@ -463,7 +463,7 @@ export default function StickyNavbar({
               </ul>
 
               {displaySocials && socialItems.length > 0 && (
-                <div className="sm-socials mt-auto pt-10 flex flex-col gap-4 md:gap-6 border-t border-black/10">
+                <div className="sm-socials mt-6 pt-6 md:pt-8 flex flex-col gap-4 md:gap-6 border-t border-black/10">
                   <h3 className="sm-socials-title m-0 text-sm md:text-base font-bold uppercase tracking-[0.2em] text-black/50">
                     Socials
                   </h3>

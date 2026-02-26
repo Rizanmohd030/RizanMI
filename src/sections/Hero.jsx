@@ -1,17 +1,75 @@
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DecryptedText from "../components/Decrypt";
 import VelocityText from "../components/VelocityText";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Hero() {
   const [decryptKey, setDecryptKey] = useState(0);
+  const containerRef = useRef(null);
+  const leftContentRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Pin the entire section while scrolling
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=300%", // Longer scroll for 3 sequential reveals
+          pin: true,
+          scrub: 1,
+        },
+      });
+
+      // Sequential "Come and Stay" Reveal
+      // Line 1
+      tl.to("#velocity-line-0", {
+        opacity: 0.2, // Increased slightly for visibility
+        y: 0,
+        x: -50,
+        duration: 1.5,
+      });
+
+      // Line 2
+      tl.to("#velocity-line-1", {
+        opacity: 0.2,
+        y: 0,
+        x: 50,
+        duration: 1.5,
+      }, "+=0.8");
+
+      // Line 3
+      tl.to("#velocity-line-2", {
+        opacity: 0.2,
+        y: 0,
+        x: -50,
+        duration: 1.5,
+      }, "+=0.8");
+
+      // Subtle dimming of text at the very end to signal transition
+      tl.to(leftContentRef.current, {
+        opacity: 0.6,
+        duration: 1,
+      }, "+=0.5");
+
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="min-h-screen flex items-center pt-24 pb-16 px-8 sm:px-16 lg:px-24 overflow-hidden relative">
-      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative">
+    <section
+      ref={containerRef}
+      className="h-screen flex items-center px-8 sm:px-16 lg:px-24 overflow-hidden relative"
+    >
+      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-20">
 
         {/* LEFT SIDE (Content) */}
-        <div className="lg:col-span-6 z-20 flex flex-col justify-center">
+        <div ref={leftContentRef} className="lg:col-span-5 flex flex-col justify-center relative z-20">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,7 +83,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-4 sm:mt-6 cursor-pointer w-fit"
+            className="mt-6 sm:mt-8 cursor-pointer w-fit"
             onMouseEnter={() => setDecryptKey((prev) => prev + 1)}
           >
             <DecryptedText
@@ -37,8 +95,8 @@ export default function Hero() {
               sequential={true}
               revealDirection="start"
               animateOn="view"
-              className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[0.2em]"
-              encryptedClassName="text-black/30 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[0.2em]"
+              className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
+              encryptedClassName="text-black/30 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
             />
           </motion.div>
 
@@ -46,14 +104,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-6 sm:mt-10 text-lg sm:text-xl md:text-2xl text-black/60 max-w-[500px] leading-relaxed font-medium"
+            className="mt-10 sm:mt-14 text-xl sm:text-2xl text-black/60 max-w-[600px] leading-relaxed font-medium"
           >
             Building scalable, high-performance web applications with clean architecture and smooth interactions.
           </motion.p>
         </div>
 
-        {/* RIGHT SIDE (VelocityText Background) */}
-        <div className="lg:col-span-6 absolute lg:relative inset-0 lg:inset-auto w-full h-[60vh] lg:h-[80vh] flex items-center justify-center lg:justify-end opacity-40 lg:opacity-100 z-10 pointer-events-none mt-32 lg:mt-0">
+        {/* RIGHT SIDE (Sequential VelocityText) */}
+        <div className="lg:col-span-7 lg:-ml-10 flex flex-col justify-center items-start opacity-60 relative z-10 w-[150%]">
           <VelocityText />
         </div>
 

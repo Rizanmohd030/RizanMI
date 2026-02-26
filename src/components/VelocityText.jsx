@@ -1,42 +1,32 @@
-import { motion, useScroll, useVelocity, useTransform, useSpring } from "framer-motion";
+import { useRef, useLayoutEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function VelocityText({ className = "" }) {
-    const { scrollY } = useScroll();
-    const scrollVelocity = useVelocity(scrollY);
+    // Content as requested: First line is a 3-word sentence.
+    const lines = [
+        "CRAFTING DIGITAL EXPERIENCES", // Three words
+        "BUILDING SCALABLE SOLUTIONS",
+        "DESIGNING SEAMLESS INTERFACES"
+    ];
 
-    const skewXRaw = useTransform(scrollVelocity, [-0.5, 0.5], ["15deg", "-15deg"]);
-    const skewX = useSpring(skewXRaw, { mass: 3, stiffness: 400, damping: 50 });
-
-    // Opposite moving lines based on normal page scroll
-    const x1 = useSpring(useTransform(scrollY, [0, 1500], [0, -600]), { mass: 3, stiffness: 400, damping: 50 });
-    const x2 = useSpring(useTransform(scrollY, [0, 1500], [-600, 0]), { mass: 3, stiffness: 400, damping: 50 });
+    // Smaller, more balanced font sizes for right-column background
+    const lineStyle = "whitespace-nowrap font-black italic uppercase leading-[1] text-black text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] opacity-0";
 
     return (
-        <div className={`flex flex-col gap-2 sm:gap-4 overflow-hidden w-[150%] -ml-[25%] lg:w-full lg:ml-0 ${className}`}>
-            <motion.p
-                style={{ skewX, x: x1 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5"
-            >
-                AIM HIGH • BUILD FAST • CREATE •
-            </motion.p>
-            <motion.p
-                style={{ skewX, x: x2 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5"
-            >
-                KEEP LEARNING • KEEP BUILDING •
-            </motion.p>
-            <motion.p
-                style={{ skewX, x: x1 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5"
-            >
-                WRITE CLEAN CODE • FIX BUGS •
-            </motion.p>
-            <motion.p
-                style={{ skewX, x: x2 }}
-                className="whitespace-nowrap text-[50px] sm:text-[70px] md:text-[90px] lg:text-[110px] font-black italic uppercase leading-[0.85] text-black/5 hidden sm:block"
-            >
-                SOLVE PROBLEMS • BUILD THE FUTURE •
-            </motion.p>
+        <div className={`flex flex-col gap-6 sm:gap-8 w-full ${className}`}>
+            {lines.map((text, i) => (
+                <p
+                    key={i}
+                    id={`velocity-line-${i}`}
+                    className={lineStyle}
+                >
+                    {text} • {text} •
+                </p>
+            ))}
         </div>
     );
 }

@@ -22,12 +22,12 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                     </h3>
                 </div>
 
-                <p className="mt-6 sm:mt-8 text-lg sm:text-xl text-black/60 leading-relaxed font-medium max-w-[550px]">
+                <p className="mt-6 sm:mt-8 text-xl sm:text-2xl md:text-3xl text-black/60 leading-relaxed font-medium max-w-[650px]">
                     {description}
                 </p>
 
                 {tech && (
-                    <p className="mt-5 text-xs sm:text-sm uppercase tracking-[0.25em] text-black/40 font-bold">
+                    <p className="mt-5 text-sm sm:text-base uppercase tracking-[0.25em] text-black/40 font-bold">
                         {tech}
                     </p>
                 )}
