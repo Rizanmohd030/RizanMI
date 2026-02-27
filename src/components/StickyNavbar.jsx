@@ -358,13 +358,13 @@ export default function StickyNavbar({
     <>
       {/* BACKGROUND STICKY BLUR NAVBAR */}
       <header className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-5 sm:px-16 sm:py-6 bg-white/70 backdrop-blur-md border-b border-black/10 pointer-events-auto z-40 transition-all">
-        <div className="text-xl sm:text-2xl font-black uppercase tracking-[0.1em] text-black">
+        <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-black uppercase tracking-[0.1em] text-black">
           Bangalore, India
         </div>
 
         <button
           ref={toggleBtnRef}
-          className="sm-toggle relative inline-flex items-center gap-[0.5rem] bg-transparent border-0 cursor-pointer text-black font-semibold text-lg sm:text-xl uppercase tracking-widest leading-none overflow-visible pointer-events-auto"
+          className="sm-toggle relative inline-flex items-center gap-[0.5rem] bg-transparent border-0 cursor-pointer text-black font-semibold text-base sm:text-lg lg:text-xl uppercase tracking-widest leading-none overflow-visible pointer-events-auto"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="staggered-menu-panel"

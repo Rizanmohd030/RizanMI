@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DecryptedText from "../components/Decrypt";
 import VelocityText from "../components/VelocityText";
+import { BoxesCore } from "../components/ui/BackgroundBoxes";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,15 +67,23 @@ export default function Hero() {
       ref={containerRef}
       className="h-screen flex items-center px-8 sm:px-16 lg:px-24 overflow-hidden relative"
     >
-      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-20">
+      {/* BACKGROUND BOXES (Interactive) - Hidden on mobile for performance */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none hidden md:block">
+        <BoxesCore />
+        {/* Subtle radial mask to fade the boxes into the existing dotted background */}
+        <div className="pointer-events-none absolute inset-0 z-10 bg-[#F3F4F6] [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black_80%)]" />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-20 pointer-events-none">
 
         {/* LEFT SIDE (Content) */}
-        <div ref={leftContentRef} className="lg:col-span-5 flex flex-col justify-center relative z-20">
+        <div ref={leftContentRef} className="lg:col-span-5 flex flex-col justify-center relative z-20 pointer-events-auto pt-24 lg:pt-0">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[25vw] sm:text-[18vw] lg:text-[140px] xl:text-[180px] font-black leading-[0.85] tracking-tight text-black"
+            className="text-[25vw] sm:text-[18vw] lg:text-[140px] xl:text-[180px] font-black leading-[0.85] tracking-tight text-black drop-shadow-sm"
+            style={{ fontFamily: "'Futura PT', Futura, sans-serif" }}
           >
             RIZAN
           </motion.h1>
@@ -95,7 +104,7 @@ export default function Hero() {
               sequential={true}
               revealDirection="start"
               animateOn="view"
-              className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
+              className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em] drop-shadow-sm"
               encryptedClassName="text-black/30 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
             />
           </motion.div>
@@ -111,7 +120,7 @@ export default function Hero() {
         </div>
 
         {/* RIGHT SIDE (Sequential VelocityText) */}
-        <div className="lg:col-span-7 lg:-ml-10 flex flex-col justify-center items-start opacity-60 relative z-10 w-[150%]">
+        <div className="lg:col-span-7 lg:-ml-10 flex flex-col justify-center items-start opacity-60 relative z-10 w-[150%] pointer-events-none">
           <VelocityText />
         </div>
 

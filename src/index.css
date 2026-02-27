@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/futura-pt');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,6 +21,21 @@ body {
   background-size: 32px 32px;
   font-size: 18px;
   /* Slightly larger base for a premium feel */
+
+  /* Global fix: Disable text selection cursor across the entire portfolio */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection only on standard input elements if needed */
+input,
+textarea {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
 }
 
 p {
