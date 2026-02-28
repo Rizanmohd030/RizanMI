@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DecryptedText from "../components/Decrypt";
 import VelocityText from "../components/VelocityText";
 import { BoxesCore } from "../components/ui/BackgroundBoxes";
+import HeroContactButton from "../components/HeroContactButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,10 +118,12 @@ export default function Hero() {
           >
             Building scalable, high-performance web applications with clean architecture and smooth interactions.
           </motion.p>
+
+          <HeroContactButton />
         </div>
 
         {/* RIGHT SIDE (Sequential VelocityText) */}
-        <div className="lg:col-span-7 lg:-ml-10 flex flex-col justify-center items-start opacity-60 relative z-10 w-[150%] pointer-events-none">
+        <div className="lg:col-span-7 flex flex-col justify-center items-end opacity-60 relative z-10 pointer-events-none">
           <VelocityText />
         </div>
 

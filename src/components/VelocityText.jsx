@@ -6,27 +6,27 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function VelocityText({ className = "" }) {
-    // Content as requested: First line is a 3-word sentence.
     const lines = [
-        "CRAFTING DIGITAL EXPERIENCES", // Three words
-        "BUILDING SCALABLE SOLUTIONS",
-        "DESIGNING SEAMLESS INTERFACES"
+        "DESIGNING...",
+        "CODING!",
+        "BUILDING..."
     ];
 
     // Smaller, more balanced font sizes for right-column background
-    const lineStyle = "whitespace-nowrap font-black italic uppercase leading-[1] text-black text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] opacity-0";
+    const lineStyle = "whitespace-nowrap font-black italic uppercase leading-[1] text-black text-[36px] sm:text-[44px] md:text-[52px] lg:text-[62px] opacity-0";
 
     return (
-        <div className={`flex flex-col gap-6 sm:gap-8 w-full ${className}`}>
+        <div className={`flex flex-col gap-6 sm:gap-8 w-full items-end ${className}`}>
             {lines.map((text, i) => (
                 <p
                     key={i}
                     id={`velocity-line-${i}`}
                     className={lineStyle}
                 >
-                    {text} • {text} •
+                    {text}
                 </p>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     );
 }

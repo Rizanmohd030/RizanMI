@@ -9,6 +9,14 @@ export default function Footer() {
                 </p>
                 <div className="flex gap-6">
                     <a
+                        href="mailto:rizanmohd030@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-black transition-colors"
+                    >
+                        rizanmohd030@gmail.com
+                    </a>
+                    <a
                         href="https://www.linkedin.com/in/rizanmohd030/"
                         target="_blank"
                         rel="noopener noreferrer"
