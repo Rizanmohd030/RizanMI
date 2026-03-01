@@ -17,12 +17,12 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                         className="w-3 sm:w-4 h-3 sm:h-4 rounded-full flex-shrink-0"
                         style={{ backgroundColor: accentColor }}
                     />
-                    <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-black uppercase tracking-tight text-black leading-none">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black uppercase tracking-tight text-black leading-none">
                         {title}
                     </h3>
                 </div>
 
-                <p className="mt-6 sm:mt-8 text-xl sm:text-2xl md:text-3xl text-black/60 leading-relaxed font-medium max-w-[650px]">
+                <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-black/60 leading-relaxed font-medium max-w-[560px]">
                     {description}
                 </p>
 
@@ -32,7 +32,7 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                     </p>
                 )}
 
-                <div className="mt-10 flex flex-wrap gap-4 sm:gap-6">
+                <div className="mt-7 flex flex-wrap gap-4 sm:gap-6">
                     {liveUrl && <NeuButton href={liveUrl}>Watch Live</NeuButton>}
                     {gitUrl && <NeuButton href={gitUrl}>See Code</NeuButton>}
                 </div>
@@ -57,11 +57,11 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                     </div>
 
                     {/* Image Container with Styling */}
-                    <div className="bg-surface relative flex items-center justify-center p-4 sm:p-8 min-h-[300px] h-full overflow-hidden">
+                    <div className="bg-surface relative flex items-center justify-center p-4 sm:p-6 min-h-[240px] h-full overflow-hidden">
                         <img
                             src={image}
                             alt={title}
-                            className="w-full h-auto max-h-[400px] object-contain grayscale contrast-[1.1] opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
+                            className="w-full h-auto max-h-[320px] object-contain grayscale contrast-[1.1] opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
                         />
                     </div>
 

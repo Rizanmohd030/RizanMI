@@ -30,7 +30,7 @@ const achievementsList = [
     ],
     // Position classes to ensure the user is visible in the frame
     imagePosition: [
-      "object-[center_30%]", // adjust vertical framing for pic 1
+      "object-[center_5%]",  // adjusted to show face in pic 1
       "object-[center_35%]", // adjust vertical framing for pic 2 
       "object-[center_40%]"  // adjust vertical framing for pic 3
     ]
@@ -192,9 +192,9 @@ export default function AboutMe() {
             <div className="pt-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-block text-lg sm:text-xl lg:text-3xl font-bold text-black border-b-[3px] border-transparent hover:border-black transition-colors duration-300 pb-1 text-left"
+                className="inline-block text-xl sm:text-2xl lg:text-4xl font-bold text-black border-b-[3px] border-transparent hover:border-black transition-colors duration-300 pb-1 text-left"
               >
-                Want to learn about my achievements? →
+                <span className="highlight">Want to learn about my achievements?</span> →
               </button>
             </div>
           </motion.div>

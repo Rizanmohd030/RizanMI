@@ -9,7 +9,7 @@ import HeroContactButton from "../components/HeroContactButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+export default function Hero({ introComplete }) {
   const [decryptKey, setDecryptKey] = useState(0);
   const containerRef = useRef(null);
   const leftContentRef = useRef(null);
@@ -89,26 +89,28 @@ export default function Hero() {
             RIZAN
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-6 sm:mt-8 cursor-pointer w-fit"
-            onMouseEnter={() => setDecryptKey((prev) => prev + 1)}
-          >
-            <DecryptedText
-              key={decryptKey}
-              text="SOFTWARE DEVELOPER"
-              characters="アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
-              speed={130}
-              maxIterations={35}
-              sequential={true}
-              revealDirection="start"
-              animateOn="view"
-              className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em] drop-shadow-sm"
-              encryptedClassName="text-black/30 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
-            />
-          </motion.div>
+          {introComplete && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+              className="mt-6 sm:mt-8 cursor-pointer w-fit"
+              onMouseEnter={() => setDecryptKey((prev) => prev + 1)}
+            >
+              <DecryptedText
+                key={decryptKey}
+                text="SOFTWARE DEVELOPER"
+                characters="アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
+                speed={130}
+                maxIterations={35}
+                sequential={true}
+                revealDirection="start"
+                animateOn="view"
+                className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em] drop-shadow-sm"
+                encryptedClassName="text-black/30 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
+              />
+            </motion.div>
+          )}
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}

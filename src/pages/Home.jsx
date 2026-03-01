@@ -8,13 +8,13 @@ import ProjectBlog from "../sections/ProjectBlog";
 import AboutMe from "../sections/AboutMe";
 import Contact from "../sections/Contact";
 import Footer from "../components/Footer";
-import MoreProjects from "../sections/MoreProjects";
+import ScrollToTop from "../components/ScrollToTop";
 
-export default function Home() {
+export default function Home({ introComplete }) {
   return (
     <>
       <StickyNavbar />
-      <Hero />
+      <Hero introComplete={introComplete} />
 
       {/* Projects */}
       <section id="projects" className="py-24 sm:py-32 lg:py-40 px-8 sm:px-16 lg:px-24">
@@ -34,7 +34,6 @@ export default function Home() {
             <RecipeHunt />
             <GenAI />
             <ProjectBlog />
-            <MoreProjects />
           </div>
         </div>
       </section>
@@ -42,6 +41,7 @@ export default function Home() {
       <AboutMe />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

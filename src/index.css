@@ -7,11 +7,13 @@
 /* ── GLOBAL FOUNDATION ── */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html,
 body {
   margin: 0;
+  overflow-x: hidden;
   padding: 0;
   min-height: 100%;
   font-family: 'Outfit', system-ui, sans-serif;
@@ -19,7 +21,7 @@ body {
   background-color: #F3F4F6;
   background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
   background-size: 32px 32px;
-  font-size: 18px;
+  font-size: 14px;
   /* Slightly larger base for a premium feel */
 
   /* Global fix: Disable text selection cursor across the entire portfolio */
@@ -75,10 +77,22 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0f0f0f20;
+  background: #0f0f0f70;
   border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0f0f0f40;
+  background: #0f0f0faa;
+}
+
+/* ── YELLOW HIGHLIGHTER ── */
+.highlight {
+  background: linear-gradient(104deg,
+      transparent 0.9%,
+      #ffe066 2.4%,
+      #ffe066 97.6%,
+      transparent 98.1%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 4px;
 }

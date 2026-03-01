@@ -166,6 +166,14 @@ export default function Contact() {
                     >
                         GitHub
                     </a>
+                    <a
+                        href="https://www.instagram.com/rizan__m/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-black transition-colors uppercase tracking-widest"
+                    >
+                        Instagram
+                    </a>
                 </motion.div>
             </div>
         </section>
