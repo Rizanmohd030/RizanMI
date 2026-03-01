@@ -20,6 +20,7 @@ export default function StickyNavbar({
     { label: 'rizanmohd030@gmail.com', link: 'mailto:rizanmohd030@gmail.com' },
     { label: 'LinkedIn', link: 'https://www.linkedin.com/in/rizanmohd030/' },
     { label: 'GitHub', link: 'https://github.com/Rizanmohd030' },
+    { label: 'Instagram', link: 'https://www.instagram.com/rizan__m/' },
   ];
   const displaySocials = true;
   const displayItemNumbering = true;
