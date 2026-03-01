@@ -1,6 +1,6 @@
 import RecipeFin from "../assets/images/RecipeFin.png";
 import GenAILaptop from "../assets/images/genai-laptop.png";
-import BlogUI from "../assets/images/blog.png";
+import BlogUI from "../assets/images/Blog.png";
 
 export const mainProjects = [
   {
