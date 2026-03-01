@@ -2,6 +2,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Portal from "../components/Portal";
 
+// Import images to ensure they are bundled correctly by Vite
+import kaushal1 from "../assets/images/kaushal 1.jpg";
+import kaushal2 from "../assets/images/kaushal 2.jpg";
+import kaushal3 from "../assets/images/kaushal 3.jpg";
+import adc1 from "../assets/images/adc 1.jpg";
+import adc2 from "../assets/images/adc 2.jpg";
+import adc3 from "../assets/images/adc 3.jpg";
+import hacksummit from "../assets/images/hacksummit.jpg";
+import rizanProfile from "../assets/images/RizanProfile.JPG";
+
 const achievementsList = [
   {
     year: "2025",
@@ -11,9 +21,9 @@ const achievementsList = [
     hoverClass: "hover:border-[#FF5F56]",
     isMain: false,
     image: [
-      "/src/assets/images/kaushal 1.jpg",
-      "/src/assets/images/kaushal 2.jpg",
-      "/src/assets/images/kaushal 3.jpg"
+      kaushal1,
+      kaushal2,
+      kaushal3
     ]
   },
   {
@@ -24,9 +34,9 @@ const achievementsList = [
     hoverClass: "", // Handled inline for main achievement
     isMain: true,
     image: [
-      "/src/assets/images/adc 1.jpg",
-      "/src/assets/images/adc 2.jpg",
-      "/src/assets/images/adc 3.jpg"
+      adc1,
+      adc2,
+      adc3
     ],
     // Position classes to ensure the user is visible in the frame
     imagePosition: [
@@ -42,7 +52,7 @@ const achievementsList = [
     badgeClass: "bg-[#27C93F] text-white",
     hoverClass: "hover:border-[#27C93F]",
     isMain: false,
-    image: "/src/assets/images/hacksummit.jpg"
+    image: hacksummit
   }
 ];
 
@@ -128,7 +138,7 @@ export default function AboutMe() {
               {/* Image Container */}
               <div className="relative overflow-hidden flex-1 bg-surface">
                 <img
-                  src="/src/assets/images/RizanProfile.JPG"
+                  src={rizanProfile}
                   alt="Rizan"
                   className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-all duration-700 ease-out"
                 />
