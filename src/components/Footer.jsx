@@ -28,7 +28,7 @@ export default function Footer() {
                         <p className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-semibold">Connect</p>
                         <ul className="space-y-3">
                             {[
-                                { label: "LinkedIn", href: "https://www.linkedin.com/in/rizanmohd030/" },
+                                { label: "LinkedIn", href: "https://www.linkedin.com/in/rizan-mohammed-ismail-b059b7269" },
                                 { label: "GitHub", href: "https://github.com/Rizanmohd030" },
                                 { label: "Instagram", href: "https://www.instagram.com/rizan__m/" },
                             ].map(({ label, href }) => (

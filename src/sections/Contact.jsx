@@ -151,7 +151,7 @@ export default function Contact() {
                     className="mt-16 flex justify-center gap-8 text-sm text-black/40"
                 >
                     <a
-                        href="https://www.linkedin.com/in/rizanmohd030/"
+                        href="https://www.linkedin.com/in/rizan-mohammed-ismail-b059b7269"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-black transition-colors uppercase tracking-widest"
