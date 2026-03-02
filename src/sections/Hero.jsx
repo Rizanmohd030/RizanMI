@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DecryptedText from "../components/Decrypt";
-import VelocityText from "../components/VelocityText";
+import ScrollDino from "../components/ScrollDino";
 import { BoxesCore } from "../components/ui/BackgroundBoxes";
 import HeroContactButton from "../components/HeroContactButton";
 
@@ -27,31 +27,6 @@ export default function Hero({ introComplete }) {
         },
       });
 
-      // Sequential "Come and Stay" Reveal
-      // Line 1
-      tl.to("#velocity-line-0", {
-        opacity: 0.2, // Increased slightly for visibility
-        y: 0,
-        x: -50,
-        duration: 1.5,
-      });
-
-      // Line 2
-      tl.to("#velocity-line-1", {
-        opacity: 0.2,
-        y: 0,
-        x: 50,
-        duration: 1.5,
-      }, "+=0.8");
-
-      // Line 3
-      tl.to("#velocity-line-2", {
-        opacity: 0.2,
-        y: 0,
-        x: -50,
-        duration: 1.5,
-      }, "+=0.8");
-
       // Subtle dimming of text at the very end to signal transition
       tl.to(leftContentRef.current, {
         opacity: 0.6,
@@ -66,6 +41,7 @@ export default function Hero({ introComplete }) {
   return (
     <section
       ref={containerRef}
+      id="hero-section"
       className="h-screen flex items-center px-8 sm:px-16 lg:px-24 overflow-hidden relative"
     >
       {/* BACKGROUND BOXES (Interactive) - Hidden on mobile for performance */}
@@ -78,12 +54,12 @@ export default function Hero({ introComplete }) {
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-20 pointer-events-none">
 
         {/* LEFT SIDE (Content) */}
-        <div ref={leftContentRef} className="lg:col-span-5 flex flex-col justify-center relative z-20 pointer-events-auto pt-24 lg:pt-0">
+        <div ref={leftContentRef} className="lg:col-span-4 flex flex-col justify-center relative z-20 pointer-events-auto pt-24 lg:pt-0">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[25vw] sm:text-[18vw] lg:text-[140px] xl:text-[180px] font-black leading-[0.85] tracking-tight text-black drop-shadow-sm"
+            className="text-[25vw] sm:text-[18vw] lg:text-[120px] xl:text-[150px] font-black leading-[0.85] tracking-tight text-black drop-shadow-sm"
             style={{ fontFamily: "'Futura PT', Futura, sans-serif" }}
           >
             RIZAN
@@ -106,8 +82,8 @@ export default function Hero({ introComplete }) {
                 sequential={true}
                 revealDirection="start"
                 animateOn="view"
-                className="text-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em] drop-shadow-sm"
-                encryptedClassName="text-black/30 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-[0.2em]"
+                className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold tracking-[0.2em] drop-shadow-sm"
+                encryptedClassName="text-black/30 text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold tracking-[0.2em]"
               />
             </motion.div>
           )}
@@ -116,7 +92,7 @@ export default function Hero({ introComplete }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-10 sm:mt-14 text-xl sm:text-2xl text-black/60 max-w-[600px] leading-relaxed font-medium"
+            className="mt-8 sm:mt-10 text-lg sm:text-xl text-black/60 max-w-[500px] leading-relaxed font-medium"
           >
             Building scalable, high-performance web applications with clean architecture and smooth interactions.
           </motion.p>
@@ -124,9 +100,9 @@ export default function Hero({ introComplete }) {
           <HeroContactButton />
         </div>
 
-        {/* RIGHT SIDE (Sequential VelocityText) */}
-        <div className="lg:col-span-7 flex flex-col justify-center items-end opacity-60 relative z-10 pointer-events-none">
-          <VelocityText />
+        {/* RIGHT SIDE (Dino Scroll) */}
+        <div className="lg:col-span-8 flex flex-col justify-center items-center lg:items-end relative z-10 pointer-events-none pb-8 lg:pb-0">
+          <ScrollDino />
         </div>
 
       </div>
