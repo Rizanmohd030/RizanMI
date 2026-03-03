@@ -24,6 +24,11 @@ const achievementsList = [
       kaushal1,
       kaushal2,
       kaushal3
+    ],
+    imagePosition: [
+      "object-center",
+      "object-center",
+      "object-[75%_center]"
     ]
   },
   {
