@@ -10,7 +10,7 @@ import adc1 from "../assets/images/adc 1.jpg";
 import adc2 from "../assets/images/adc 2.jpg";
 import adc3 from "../assets/images/adc 3.jpg";
 import hacksummit from "../assets/images/hacksummit.jpg";
-import rizanProfile from "../assets/images/RizanProfile.JPG";
+import rizanProfile from "../assets/images/RizanProfile2.jpeg";
 
 const achievementsList = [
   {
