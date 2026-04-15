@@ -76,10 +76,6 @@ export default function Footer() {
             <div className="border-t border-white/10 px-8 sm:px-16 lg:px-24 py-5">
                 <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/20">
                     <p>© {year} Rizan. All rights reserved.</p>
-                    <p className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
-                        Available for opportunities
-                    </p>
                 </div>
             </div>
         </footer>

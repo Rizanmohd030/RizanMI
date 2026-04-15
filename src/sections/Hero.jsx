@@ -60,7 +60,7 @@ export default function Hero({ introComplete }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-[25vw] sm:text-[18vw] lg:text-[120px] xl:text-[150px] font-black leading-[0.85] tracking-tight text-black drop-shadow-sm"
-            style={{ fontFamily: "'Futura PT', Futura, sans-serif" }}
+            style={{ fontFamily: "'Sungkem', sans-serif" }}
           >
             RIZAN
           </motion.h1>
@@ -94,7 +94,8 @@ export default function Hero({ introComplete }) {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-8 sm:mt-10 text-lg sm:text-xl text-black/60 max-w-[500px] leading-relaxed font-medium"
           >
-            Building scalable, high-performance web applications with clean architecture and smooth interactions.
+           Bridging legacy systems and modern web{"\u2014"}<span className="border-b-4 border-yellow-400 pb-[1px]">ASP.NET</span> to <span className="border-b-4 border-yellow-400 pb-[1px]">MERN</span>, I build what{"\u2019"}s next. Driven to craft scalable, impactful applications while constantly leveling up my stack.
+
           </motion.p>
 
           <HeroContactButton />
