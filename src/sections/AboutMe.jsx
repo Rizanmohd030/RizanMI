@@ -155,7 +155,7 @@ export default function AboutMe() {
           <h2
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-black leading-tight max-w-[800px] transition-transform duration-300 hover:-translate-y-2 hover:-translate-x-2 cursor-default select-none"
           >
-            Heyy, I'm <span className="ml-4 inline-block leading-[0.75] border-b-8 border-yellow-400" style={{ fontFamily: "'Sungkem', sans-serif", fontSize: "1.6em" }}>Rizan.</span>
+            Heyy, I'm <span className="ml-3 inline-block leading-[0.75] border-b-8 border-yellow-400" style={{ fontFamily: "'Sungkem', sans-serif", fontSize: "1.6em" }}>Rizan.</span>
           </h2>
         </motion.div>
 
