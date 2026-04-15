@@ -360,7 +360,11 @@ export default function StickyNavbar({
     <>
       {/* BACKGROUND STICKY BLUR NAVBAR */}
       <header className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-5 sm:px-16 sm:py-6 bg-white/70 backdrop-blur-md border-b border-black/10 pointer-events-auto z-40 transition-all">
-        <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-black uppercase tracking-[0.1em] text-black">
+        <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-black uppercase tracking-[0.1em] text-black flex items-center gap-2">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
           Bangalore, India
         </div>
 
