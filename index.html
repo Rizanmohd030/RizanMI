@@ -35,7 +35,10 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <!-- FOUC Preventer: Hardcoded black screen that covers the dotted background until React mounts the Intro Component -->
+    <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:black;z-index:99999;"></div>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
