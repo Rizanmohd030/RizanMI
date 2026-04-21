@@ -14,6 +14,7 @@ export default function ProjectBlog() {
       gitUrl={data.git}
       image={data.heroImage}
       accentColor="#7C3AED"
+      imageMode="cover-top"
     />
   );
 }

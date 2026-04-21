@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import NeuButton from "../components/NeuButton";
 
-export default function ProjectCard({ title, description, tech, liveUrl, gitUrl, image, accentColor = "#FF4500", reverse = false }) {
+export default function ProjectCard({ title, description, tech, liveUrl, gitUrl, image, accentColor = "#FF4500", reverse = false, imageMode = "contain", imagePosition = "object-top" }) {
     return (
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${reverse ? "lg:direction-rtl" : ""}`}>
             {/* TEXT SIDE */}
@@ -56,12 +56,24 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                         <div className="w-3 h-3 rounded-full border border-black bg-white group-hover:bg-[#27C93F] transition-colors duration-300 delay-150" />
                     </div>
 
-                    {/* Image Container with Styling */}
-                    <div className="bg-surface relative flex items-center justify-center p-4 sm:p-6 min-h-[240px] h-full overflow-hidden">
+                    {/* Image Container */}
+                    <div className={`bg-surface relative flex items-center justify-center overflow-hidden ${
+                        imageMode === "cover-top" 
+                        ? "w-full aspect-[16/10] sm:aspect-[16/11]" 
+                        : imageMode === "scale-fit"
+                        ? "w-full h-auto min-h-[200px]"
+                        : "p-4 sm:p-6 min-h-[240px] h-full"
+                    }`}>
                         <img
                             src={image}
                             alt={title}
-                            className="w-full h-auto max-h-[320px] object-contain grayscale contrast-[1.1] opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
+                            className={`transition-all duration-700 ease-in-out opacity-85 brightness-[0.8] contrast-[1.05] group-hover:brightness-100 group-hover:opacity-100 group-hover:scale-[1.03] ${
+                                imageMode === "cover-top"
+                                ? `w-full h-full object-cover ${imagePosition}`
+                                : imageMode === "scale-fit"
+                                ? `w-full h-auto object-contain ${imagePosition}`
+                                : "w-full h-auto max-h-[320px] object-contain"
+                            }`}
                         />
                     </div>
 

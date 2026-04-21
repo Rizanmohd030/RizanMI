@@ -14,6 +14,7 @@ export default function RecipeHunt() {
       gitUrl={data.git}
       image={data.heroImage}
       accentColor="#FF4500"
+      imageMode="cover-top"
     />
   );
 }

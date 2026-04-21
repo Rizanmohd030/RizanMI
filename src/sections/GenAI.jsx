@@ -15,6 +15,8 @@ export default function GenAI() {
       image={data.heroImage}
       accentColor="#1691DB"
       reverse
+      imageMode="cover-top"
+      imagePosition="object-left-top"
     />
   );
 }
