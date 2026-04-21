@@ -54,7 +54,7 @@ export default function Hero({ introComplete }) {
       <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-20 pointer-events-none">
 
         {/* LEFT SIDE (Content) */}
-        <div ref={leftContentRef} className="lg:col-span-4 flex flex-col justify-center relative z-20 pointer-events-auto pt-24 lg:pt-0">
+        <div ref={leftContentRef} className="lg:col-span-4 flex flex-col justify-center relative z-20 pointer-events-auto pt-16 sm:pt-20 lg:pt-0">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}

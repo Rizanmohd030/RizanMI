@@ -11,87 +11,125 @@ const DINO_EYE = "M68,64L68,68L72,68L72,64L68,64Z";
 export default function ScrollDino() {
     const containerRef = useRef(null);
     const dinoRef = useRef(null);
+    const dinoSvgRef = useRef(null); // Separate ref for the leg bob
     const cactusRef = useRef(null);
 
     useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            // Detect mobile to scale jump height accordingly
-            const isMobile = window.innerWidth < 1024;
-            const jumpHeight = isMobile ? -70 : -120;
+        let ctx;
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#hero-section",
-                    start: "top top",
-                    end: "+=300%",
-                    scrub: 1,
-                },
-            });
+        const initAnimation = () => {
+            if (ctx) ctx.revert();
 
-            // Running leg bob
-            tl.to({}, {
-                duration: 1,
-                onUpdate: function () {
-                    const p = this.progress();
-                    const running = p > 0.05 && p < 0.45;
-                    if (running) {
-                        gsap.set(dinoRef.current, { y: Math.floor(p * 120) % 2 === 0 ? 0 : -3 });
-                    } else {
-                        gsap.set(dinoRef.current, { y: 0 });
-                    }
-                },
-            });
+            ctx = gsap.context(() => {
+                const containerWidth = containerRef.current.offsetWidth;
+                const isMobile = window.innerWidth < 640;
+                const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+                
+                const jumpHeight = isMobile ? -60 : isTablet ? -90 : -130;
+                
+                gsap.set(dinoRef.current, { left: "10%", x: 0, y: 0 });
+                gsap.set(dinoSvgRef.current, { y: 0 });
+                gsap.set(cactusRef.current, { left: 0, x: 0 });
 
-            // Jump over cactus
-            tl.to(dinoRef.current, { y: jumpHeight, ease: "power2.out", duration: 0.15 }, 0.45);
-            tl.to(dinoRef.current, { y: 0, ease: "power2.in", duration: 0.15 }, 0.60);
+                const startX = containerWidth + 20; 
+                const endX = -100;
+                const totalDistance = startX - endX;
+                
+                const dinoX = containerWidth * 0.10;
+                
+                const collisionProgress = (startX - dinoX) / totalDistance;
+                
+                const jumpDuration = 0.16; 
+                const jumpStart = collisionProgress - (jumpDuration / 2) - 0.02;
+                const jumpPeak = collisionProgress - 0.01;
+                const jumpEnd = collisionProgress + (jumpDuration / 2) - 0.01;
 
-            // Cactus slides in from right, exits left
-            tl.fromTo(
-                cactusRef.current,
-                { x: isMobile ? 400 : 700 },
-                { x: isMobile ? -300 : -600, duration: 1, ease: "none" },
-                0
-            );
-        }, containerRef);
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "#hero-section",
+                        start: "top top",
+                        end: "+=300%",
+                        scrub: 1,
+                    },
+                });
 
-        return () => ctx.revert();
+                // Running leg bob applied to the INNER SVG so it doesn't fight the jump
+                tl.to({}, {
+                    duration: 1,
+                    onUpdate: function () {
+                        const p = this.progress();
+                        const running = p < jumpStart || p > jumpEnd;
+                        if (running) {
+                            gsap.set(dinoSvgRef.current, { y: Math.floor(p * 200) % 2 === 0 ? 0 : -3 });
+                        } else {
+                            gsap.set(dinoSvgRef.current, { y: 0 });
+                        }
+                    },
+                });
+
+                // Jump arc applied to the OUTER wrapper container
+                tl.to(dinoRef.current, { y: jumpHeight, ease: "power2.out", duration: jumpPeak - jumpStart }, jumpStart);
+                tl.to(dinoRef.current, { y: 0, ease: "power2.in", duration: jumpEnd - jumpPeak }, jumpPeak);
+
+                // Cactus slide
+                tl.fromTo(
+                    cactusRef.current,
+                    { x: startX },
+                    { x: endX, ease: "none", duration: 1 },
+                    0
+                );
+
+            }, containerRef);
+        };
+
+        initAnimation();
+
+        let timeoutId;
+        const handleResize = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(initAnimation, 200);
+        };
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            if (ctx) ctx.revert();
+            window.removeEventListener("resize", handleResize);
+            clearTimeout(timeoutId);
+        };
     }, []);
 
     return (
         <div
             ref={containerRef}
-            // Mobile: smaller height, centered; Desktop: right-aligned, taller
-            className="relative w-full h-[180px] sm:h-[220px] lg:h-[300px] overflow-hidden select-none"
+            className="relative w-full h-[140px] sm:h-[180px] lg:h-[300px] overflow-hidden select-none"
         >
             {/* Ground line */}
             <div className="absolute bottom-10 sm:bottom-12 lg:bottom-14 left-0 w-full h-[1.5px] bg-black/25" />
 
-            {/* Cactus — smaller on mobile */}
-            <div ref={cactusRef} className="absolute bottom-10 sm:bottom-12 lg:bottom-14">
+            {/* Cactus */}
+            <div ref={cactusRef} className="absolute bottom-10 sm:bottom-12 lg:bottom-14 left-0">
                 <svg
                     viewBox="0 0 25 50"
                     fill="#535353"
                     style={{ shapeRendering: "crispEdges", display: "block" }}
                     className="w-5 h-10 sm:w-6 sm:h-12 lg:w-7 lg:h-14"
                 >
-                    {/* Trunk */}
                     <rect x={8} y={0} width={9} height={50} />
-                    {/* Left arm */}
                     <rect x={0} y={18} width={8} height={4} />
                     <rect x={0} y={10} width={4} height={18} />
-                    {/* Right arm */}
                     <rect x={17} y={14} width={8} height={4} />
                     <rect x={21} y={8} width={4} height={20} />
                 </svg>
             </div>
 
-            {/* Dino — scales down on mobile, positioned left-aligned on mobile, slightly right on desktop */}
+            {/* Dino Wrapper */}
             <div
                 ref={dinoRef}
-                className="absolute bottom-10 sm:bottom-12 lg:bottom-14 left-8 sm:left-12 lg:left-24"
+                className="absolute bottom-10 sm:bottom-12 lg:bottom-14"
             >
+                {/* Dino Inner SVG */}
                 <svg
+                    ref={dinoSvgRef}
                     viewBox="16 50 88 96"
                     fill="#1a1a1a"
                     style={{ shapeRendering: "crispEdges", display: "block" }}
