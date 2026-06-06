@@ -13,7 +13,7 @@ export default function MiOSProject() {
       liveUrl={data.live}
       gitUrl={data.git}
       image={data.heroImage}
-      accentColor="#ef4444"
+      accentColor="#FF0000"
       imageMode="cover-top"
     />
   );
