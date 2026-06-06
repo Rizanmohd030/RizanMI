@@ -2,17 +2,35 @@ import { motion } from "framer-motion";
 import NeuButton from "../components/NeuButton";
 
 export default function ProjectCard({ title, description, tech, liveUrl, gitUrl, image, accentColor = "#FF4500", reverse = false, imageMode = "contain", imagePosition = "object-top" }) {
+    
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15 }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
     return (
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${reverse ? "lg:direction-rtl" : ""}`}>
             {/* TEXT SIDE */}
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={containerVariants}
                 className={`${reverse ? "lg:order-2" : "lg:order-1"}`}
             >
-                <div className="flex items-center gap-4">
+                <motion.div variants={itemVariants} className="flex items-center gap-4">
                     <span
                         className="w-3 sm:w-4 h-3 sm:h-4 rounded-full flex-shrink-0"
                         style={{ backgroundColor: accentColor }}
@@ -20,30 +38,30 @@ export default function ProjectCard({ title, description, tech, liveUrl, gitUrl,
                     <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black uppercase tracking-tight text-black leading-none">
                         {title}
                     </h3>
-                </div>
+                </motion.div>
 
-                <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-black/60 leading-relaxed font-medium max-w-[560px]">
+                <motion.p variants={itemVariants} className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-black/60 leading-relaxed font-medium max-w-[560px]">
                     {description}
-                </p>
+                </motion.p>
 
                 {tech && (
-                    <p className="mt-5 text-sm sm:text-base uppercase tracking-[0.25em] text-black/40 font-bold">
+                    <motion.p variants={itemVariants} className="mt-5 text-sm sm:text-base uppercase tracking-[0.25em] text-black/40 font-bold">
                         {tech}
-                    </p>
+                    </motion.p>
                 )}
 
-                <div className="mt-7 flex flex-wrap gap-4 sm:gap-6">
+                <motion.div variants={itemVariants} className="mt-7 flex flex-wrap gap-4 sm:gap-6">
                     {liveUrl && <NeuButton href={liveUrl}>Watch Live</NeuButton>}
                     {gitUrl && <NeuButton href={gitUrl}>See Code</NeuButton>}
-                </div>
+                </motion.div>
             </motion.div>
 
             {/* IMAGE SIDE */}
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.15 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
                 className={`${reverse ? "lg:order-1" : "lg:order-2"} group`}
             >
                 {/* Mock Browser Window Container */}

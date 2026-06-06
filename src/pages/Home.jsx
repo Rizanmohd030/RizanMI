@@ -4,7 +4,7 @@ import Hero from "../sections/Hero";
 import VelocityText from "../components/VelocityText";
 import RecipeHunt from "../sections/RecipeHunt";
 import GenAI from "../sections/GenAI";
-import ProjectBlog from "../sections/ProjectBlog";
+import MiOSProject from "../sections/MiOSProject";
 import AboutMe from "../sections/AboutMe";
 import Contact from "../sections/Contact";
 import Footer from "../components/Footer";
@@ -33,7 +33,7 @@ export default function Home({ introComplete }) {
           <div className="space-y-24 sm:space-y-32 lg:space-y-40">
             <RecipeHunt />
             <GenAI />
-            <ProjectBlog />
+            <MiOSProject />
           </div>
         </div>
       </section>

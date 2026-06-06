@@ -1,6 +1,6 @@
 import RecipeHuntMockup from "../assets/images/recipehunt-mockup.png";
 import InterviewAIMockup from "../assets/images/interviewai-mockup.png";
-import ProseBlogMockup from "../assets/images/prose-blog-mockup.png";
+import MiOSMockup from "../assets/images/mi-os.png";
 
 export const mainProjects = [
   {
@@ -19,10 +19,10 @@ export const mainProjects = [
     heroImage: InterviewAIMockup,
   },
   {
-    id: "blog",
-    title: "Personal Blog Platform",
-    live: "https://personal-blog-self-six.vercel.app/",
-    git: "https://github.com/Rizanmohd030/personal-blog",
-    heroImage: ProseBlogMockup,
+    id: "mios",
+    title: "Mi-OS",
+    live: "https://mi-os.vercel.app/",
+    git: "https://github.com/Rizanmohd030/Mi-OS",
+    heroImage: MiOSMockup,
   }
 ];
