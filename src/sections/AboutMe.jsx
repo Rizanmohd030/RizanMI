@@ -169,7 +169,7 @@ export default function AboutMe() {
             className="space-y-6"
           >
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black/60 leading-relaxed font-medium">
-              Final-year Computer Science student and MERN Stack Developer based in Bangalore, India. I specialize in building scalable, high-performance web applications with clean architecture and smooth UI interactions.
+              Final-year Computer Science student and MERN Stack Developer based in Mangalore, India. I specialize in building scalable, high-performance web applications with clean architecture and smooth UI interactions.
             </p>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black/60 leading-relaxed font-medium">
               I enjoy turning complex problems into elegant digital experiences using modern technologies. Currently exploring AI-driven solutions to create real-world impact.
